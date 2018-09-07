@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .container{
+        position: relative;
+    }
+    .num-box{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        border: 1px solid #666666;
+        border-radius: 2px;
+        transition: left  2s;
+    }
+
+</style>
+<body>
+<div id="container">
+
+</div>
+<script>
+    //实现从小到大排列
+    let arr = [12,48,28,29,10,98,74,56,27,29,37,85];
+    let container =document.getElementById('container');
+    arr.forEach(function(item,index){
+        console.log(item);
+        container.innerHTML += `<div class="num-box" id="${index}" style="left: ${index*60+10}px;">${item}</div>`;
+    });
+    var time = 1;
+    for(let i =0 ;i<arr.length;i++){
+        for(let j = 0;j<arr.length-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                //ES6结构赋值，即交换两个值
+                [arr[j],arr[j+1]] = [arr[j+1],arr[j]];
+                setTimeout(function(){
+                    var x = document.getElementById(j);
+                    var y = document.getElementById(j+1);
+                    [x.style.left,y.style.left] = [y.style.left,x.style.left];
+                    [x.id,y.id] = [y.id,x.id];
+                },time * 2000)
+                time++;
+            }
+        }
+    }
+    console.log(arr);
+</script>
+</body>
+</html>
