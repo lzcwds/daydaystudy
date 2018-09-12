@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/lzcwds/daydaystudy/issues"
   },
-  "homepage": "https://github.com/lzcwds/daydaystudy#readme"
+  "homepage": "https://github.com/lzcwds/daydaystudy#readme",
+  "dependencies": {
+    "joi": "^13.6.0"
+  }
 }
