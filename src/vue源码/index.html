@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * Get the raw type string of a value e.g. [object Object]
+     * 获取值的原始类型字符串，例如[对象对象]
+     */
+    var _toString = Object.prototype.toString;
+
+    //[object Null]
+//    [object Number]
+//    [object String]
+//    [object Boolean]
+//    [object Undefined]
+//    [object Array]
+//    [object Function]
+    function toRawType (value) {
+        return _toString.call(value).slice(8, -1)
+    }
+    console.log(toRawType(null))
+    console.log(toRawType(123))
+    console.log(toRawType('123'))
+    console.log(toRawType(true))
+    console.log(toRawType(undefined))
+    console.log(toRawType([]))
+    console.log(toRawType(function(){}))
+</script>
+</body>
+</html>

@@ -1,7 +1,39 @@
-
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-50 0 600 600" id="menu">
     <style>
+        #menu {
+        display: block;
+        margin-top: 12.3333%;
+        overflow: visible;
+        }
 
+        .menu-trigger {
+        box-shadow: 0 0 2px 0 #01E8FF, inset 0 0 3px 0 #1C575E;
+        pointer-events: auto;
+        }
+
+        .menu-trigger:hover {
+        cursor: pointer;
+        }
+
+        .ptzitem .sector {
+        transition: all .1s linear;
+        fill: rgba(20, 55, 78, .6);
+        opacity:0;
+        }
+
+
+        .ptzitem{
+        opacity:0;
+        }
+
+        .ptzitem:hover{
+        opacity:1;
+        }
+
+
+        use {
+        fill: #360036;
+        }
     </style>
     <g id="symbolsContainer">
         <symbol class="controller_ptzitem" id="icon-1" viewBox="0 0 40 40">
