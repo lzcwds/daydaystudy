@@ -1,0 +1,98 @@
+.diy_form {
+    width: 300px;
+    background: #444;
+    margin: 20px 0;
+    color: #fff;
+}
+.diy_title {
+    height: 42px;
+}
+.diy_title div{
+    float: left;
+    line-height: 40px;
+    font-size: 12px;
+    padding-left: 10px;
+    border: 1px solid #555;
+}
+.diy_td1{
+    width: calc(65% - 12px);
+}
+.diy_td2{
+    width: calc(35% - 12px);
+}
+
+.diy_content ul {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    height: 190px;
+}
+.diy_content li {
+    position: relative;
+    display: block;
+    line-height: 40px;
+    background-color: #262729;
+    margin-top: 5px;
+    padding: 0px;
+}
+.diy_content li input{
+
+    padding-left: 10px;
+    background-color: transparent;
+    border:none;
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 40px;
+}
+.diy_content li input:focus{
+    outline: none;
+}
+.diy_content li div {
+    width: 100px;
+    position: absolute;
+    display: inline-block;
+    right: 0;
+}
+.diy_content li div i {
+    margin: 0 3px;
+    opacity: 0.4;
+    color: #ffffff;
+}
+.diy_content li div i:hover{
+     opacity: 1;
+}
+.diy_add{
+    display: inline-block;
+    font-size: 14px;
+    background-color: #262729;
+    padding: 2px 10px 2px 5px;
+    margin-top: 10px;
+}
+.diy_add span{
+    padding-left: 10px;
+}
+.diy_add span:hover{
+     color: #E3C033;
+ }
+
+.diy_add i{
+    font-size: 12px;
+    color: #E3C033;
+}
+::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 6px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    opacity: 0.6;
+    background: #7d7d7d;
+    border-radius: 11px;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}

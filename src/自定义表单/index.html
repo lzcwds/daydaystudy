@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="fonts/iconfont.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="diy_form">
+    <div class="diy_title">
+        <div class="diy_td1"><i class="yellow_rec"></i>属性</div>
+        <div class="diy_td2"><i class="yellow_rec"></i>操作</div>
+    </div>
+    <div class="diy_content">
+        <ul>
+        </ul>
+    </div>
+    <div class="diy_add" style="">
+        <i class="icon font_family icon-icon-add-line"></i>
+        <span>新增属性</span>
+    </div>
+</div>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    function diydom(showop,item) {
+        let dom = $(`<li><input type="text" placeholder="请输入属性" value="${item?item.name:''}">
+					<div class="diy_op">
+						<i class="icon font_family icon-icon-pull-down-fill"></i>
+						<i class="icon font_family icon-icon-pull-up-fill"></i>
+						<i class="icon font_family icon-icon-round-close-fil"></i>
+					</div>
+				</li>`);
+        if(!showop){
+            dom.find('.diy_op').hide();
+            dom.find('input').attr('disabled',true);
+        }
+        dom.find('.icon-icon-round-close-fil').click(function () {
+            $(this).parent().parent().remove();
+        })
+        dom.find(' .icon-icon-pull-down-fill').click(function () {
+            let cur = $(this).parent().parent()[0];
+            let next = $(this).parent().parent().next()[0];
+            if(!next){
+                return;
+            }
+            let temp = $(cur).find('input').val();
+            $(cur).find('input').val($(next).find('input').val())
+            $(next).find('input').val(temp)
+        })
+        dom.find(' .icon-icon-pull-up-fill').click(function () {
+            let cur = $(this).parent().parent()[0];
+            let prev = $(this).parent().parent().prev()[0];
+            if(!prev){
+                return;
+            }
+            let temp = $(cur).find('input').val();
+            $(cur).find('input').val($(prev).find('input').val())
+            $(prev).find('input').val(temp)
+        })
+        return dom;
+    }
+    $(function () {
+        $('.diy_add').click(function () {
+            $('.diy_content ul').append(diydom(1));
+        })
+    })
+
+</script>
+</body>
+</html>
