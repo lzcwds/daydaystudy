@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function spinWords(str){
+        let arr = str.split(' ');
+        let max =arr[0];
+        let maxIndex = ''
+        arr.forEach(function(item,index){
+            if(max.length < arr[index].length){
+                max = item;
+                maxIndex = index;
+            }
+        })
+        arr[maxIndex] = max.split("").reverse().join("");
+        return arr.join(' ');
+    }
+
+    console.log(spinWords("Welcome"));
+</script>
+</body>
+</html>

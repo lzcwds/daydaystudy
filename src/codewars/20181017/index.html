@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function solution(numbers) {
+        let length = numbers.length;
+        let temp = numbers[0];
+        numbers.sort(function(a,b){
+            return a-b;
+        })
+        for(let i = 0;i<length-1;i++){
+            let max = numbers[i+1];
+            let min = temp;
+            while(max%min !=0){
+                temp = max%min;
+                max = min;
+                min = temp;
+            }
+
+        }
+        return temp*length
+    }
+    console.log(solution([6,9,21]))
+//    console.log(7%3)
+</script>
+</body>
+</html>

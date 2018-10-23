@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var recoverSecret = function(triplets) {
+        let index = 0;
+        let arr = triplets[index];
+        let str = triplets[index].join('');
+        let i = 0;
+        while(triplets.length !==1){
+            if(index == i){
+                i++;
+                continue;
+            }
+            let item =triplets[i];
+            if(str.indexOf(item[0])!=-1&&str.indexOf(item[1])!==-1 &&str.indexOf(item[2])===-1){
+                arr.splice(arr.indexOf(item[0])+1,0,item[2])
+                str = triplets[0].join('')
+                triplets.splice(i,1);
+                i = 0;
+                continue;
+            }
+            if(str.indexOf(item[0])!=-1&&str.indexOf(item[1])===-1 &&str.indexOf(item[2])!=-1 ){
+                arr.splice(arr.indexOf(item[0])+1,0,item[1]);
+                str = triplets[0].join('')
+                triplets.splice(i,1);
+                i= 0;
+                continue;
+            }
+            if(str.indexOf(item[0])===-1&&str.indexOf(item[1])!=-1 &&str.indexOf(item[2])!=-1){
+                arr.splice(arr.indexOf(item[1]),0,item[0])
+                str = triplets[0].join('')
+                triplets.splice(i,1);
+                i=0;
+                continue;
+            }
+            if(str.indexOf(item[0])!==-1&&str.indexOf(item[1])===-1 &&str.indexOf(item[2])===-1){
+                arr.splice(arr.indexOf(item[0])+1,0,item[1],item[2])
+                str = triplets[0].join('')
+                triplets.splice(i,1);
+                i=0;
+                continue;
+            }
+            if(str.indexOf(item[0])===-1&&str.indexOf(item[1])===-1 &&str.indexOf(item[2])!==-1){
+                arr.splice(arr.indexOf(item[2]),0,item[0],item[1])
+                str = triplets[0].join('')
+                triplets.splice(i,1);
+                i=0;
+                continue;
+            }
+            if(str.indexOf(item[0])===-1&&str.indexOf(item[1])!==-1 &&str.indexOf(item[2])===-1){
+                arr.splice(arr.indexOf(item[1])+1,0,item[2])
+                arr.splice(arr.indexOf(item[1]),0,item[0])
+                str = triplets[0].join('')
+                triplets.splice(i,1);
+                i=0;
+                continue;
+            }
+            if(str.indexOf(item[0])!==-1&&str.indexOf(item[1])!==-1 &&str.indexOf(item[2])!==-1){
+                triplets.splice(i,1);
+                i=0;
+                continue;
+            }
+            if(i==triplets.length){
+                index++;
+                 arr = triplets[index];
+                 str = triplets[index].join('');
+                 i = 0;
+            }else{
+                i++;
+            }
+        }
+        return arr.join('');
+    }
+    secret1 = "whatisup"
+    triplets1 = [
+        ['t','u','p'],
+        ['w','h','i'],
+        ['t','s','u'],
+        ['a','t','s'],
+        ['h','a','p'],
+        ['t','i','s'],
+        ['w','h','s']
+    ]
+    console.log(recoverSecret(triplets1))
+</script>
+</body>
+</html>

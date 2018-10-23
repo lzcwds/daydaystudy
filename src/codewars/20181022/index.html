@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    function decompose(n) {
+//        let arr = [];
+//        let s = Math.pow(n,2);
+//        let iarr = [];
+//        let i = 0;
+//        while(s>0){
+//            if(iarr[i]==undefined){
+//                iarr[i] =1
+//            }
+//            if((s<4&& s!=1) || (Math.pow(n-iarr[i],2)<=s-Math.pow(n-iarr[i],2)&&s!=1)){
+//                if(arr.length==0){
+//                    return null;
+//                }
+//                s+=Math.pow(arr.shift(),2)
+//                iarr.pop();
+//                i--;
+//                iarr[i]++;
+//                n = Math.floor(Math.sqrt(s))+1;
+//                continue;
+//            }
+//            s -= Math.pow(n-iarr[i],2)
+//            arr.unshift(n-iarr[i]);
+//            n = Math.floor(Math.sqrt(s))+1;
+//            i++;
+//        }
+//        return arr;
+//    }
+function decompose(n, n2=n*n, i=n, prev) {
+    while(n2>0 && i-->1)
+        if (prev = decompose(n, n2-i*i, i))
+            return prev.concat([i]);
+    return (n2 == 0) ? [] : null;
+}
+    function test(arr){
+        let sum = 0;
+        arr.forEach(function (item) {
+            sum +=item*item;
+        })
+        return Math.sqrt(sum);
+    }
+    console.log(test([1,5,9,15,425,90478]))
+    console.log(test([9,15,425,90478]))
+//    console.log(decompose(4));
+//    console.log(decompose(2));
+//    console.log(decompose(7));
+    console.log(decompose(90479));
+</script>
+</body>
+</html>
