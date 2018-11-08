@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+	function zeros (n) {
+		let i = 5;
+		let count = 0;
+		while(i<=n){
+			count += i/5;
+			i*=5;
+		}
+		i/=5;
+		while(i<=n-5){
+            i+=5;
+			var s = i;
+			while(s%5==0){
+				count++;
+				s/=5;
+			}
+
+		}
+		return count;
+	}
+	console.log(zeros(20));
+</script>
+</body>
+</html>

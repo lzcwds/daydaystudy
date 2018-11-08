@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+	function dirReduc(arr){
+		let i = 0;
+		while(i<arr.length){
+			if((arr[i] =='NORTH'&&arr[i+1] =='SOUTH')
+					||(arr[i] =='SOUTH'&&arr[i+1] =='SOUTH')
+					||(arr[i] =='WEST'&&arr[i+1] =='EAST')
+					||(arr[i] =='EAST'&&arr[i+1] =='WEST')){
+				arr.splice(i,2);
+				i = i-1;
+			}else{
+				i++;
+			}
+		}
+		return arr;
+	}
+
+    var arr =dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])
+    console.log(arr);
+</script>
+</body>
+</html>
