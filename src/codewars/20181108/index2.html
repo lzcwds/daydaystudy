@@ -6,26 +6,37 @@
 </head>
 <body>
 <script>
-	function zeros (n) {
-		let i = 5;
-		let count = 0;
-		while(i<=n){
-			count += i/5;
-			i*=5;
-		}
-		i/=5;
-		while(i<=n-5){
-            i+=5;
-			var s = i;
-			while(s%5==0){
-				count++;
-				s/=5;
-			}
 
-		}
-		return count;
-	}
-	console.log(zeros(20));
+//地址：https://www.codewars.com/kata/52f787eb172a8b4ae1000a34
+
+
+
+//	function zeros (n) {
+//		let i = 5;
+//		let count = 0;
+//		while(i<=n){
+//			count += i/5;
+//			i*=5;
+//		}
+//		i/=5;
+//		while(i<=n-5){
+//            i+=5;
+//			var s = i;
+//			while(s%5==0){
+//				count++;
+//				s/=5;
+//			}
+//
+//		}
+//		return count;
+//	}
+
+function zeros (n) {
+	if(n==0) return 0;
+	return zeros(parseInt(n/5))+parseInt(n/5);
+}
+console.log(zeros(210000990));
+
 </script>
 </body>
 </html>
