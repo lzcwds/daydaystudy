@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+	//	console.log(+'12' === 12)
+	//	console.log(parseInt('12') === 12)
+	console.log(++[[]][+[]]+[+[]])
+
+/*
+	// 当字符串是由数字组成的时候
+	let numStr = '123'
+	console.log(parseInt(numStr))   //123
+	console.log(Number(numStr))     //123
+	console.log(+numStr)            //123
+
+	// 当字符串是由字母组成的时候
+	numStr = 'abc'
+	console.log(parseInt(numStr))   //NaN
+	console.log(Number(numStr))     //NaN
+	console.log(+numStr)            //NaN
+
+	// 当字符串是由数字和字母组成的时候，数字开头
+	numStr = '12a3b'
+	console.log(parseInt(numStr))   //12
+	console.log(Number(numStr))     //NaN
+	console.log(+numStr)            //NaN
+
+	// 当字符串是由数字和字母组成的时候,字母开头
+	numStr = 'a123'
+	console.log(parseInt(numStr))   //NaN
+	console.log(Number(numStr))     //NaN
+	console.log(+numStr)            //NaN
+
+	// 当字符串是由0和数字
+	numStr = '0123'
+	console.log(parseInt(numStr))   //123
+	console.log(Number(numStr))     //123
+	console.log(+numStr)            //123
+
+	// **当字符串包含小数点
+	numStr = '123.456'
+	console.log(parseInt(numStr))       //123
+	console.log(Number(numStr))         //123.456
+	console.log(+numStr)                //123.456
+
+	// **当字符串为null时
+	numStr = null
+	console.log(parseInt(numStr))       //NaN
+	console.log(Number(numStr))         //0
+	console.log(+numStr)                //0
+
+	// **当字符串为''(空)时
+	numStr = ''
+	console.log(parseInt(numStr))       //NaN
+	console.log(Number(numStr))         //0
+	console.log(+numStr)                //0
+*/
+	numStr =[1]
+    console.log(numStr.toString())      //1
+    console.log(parseInt(numStr))       //1
+	console.log(Number(numStr))         //1
+	console.log(+numStr)                //1
+
+    numStr =[1,2]
+    console.log(numStr.toString())      //1,2
+    console.log(parseInt(numStr))       //1
+	console.log(Number(numStr))         //NaN
+	console.log(+numStr)                //NaN
+</script>
+</body>
+</html>

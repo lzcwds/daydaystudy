@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        li{
+            margin: 10px;
+            border:1px solid #333;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul id="test">
+        <li id="aaa" class="zzz"><span>123</span></li>
+    </ul>
+    <button>click</button>
+</div>
+<script>
+	var test = document.querySelector('#test');
+	document.querySelector('#test').addEventListener('click', function (e) {
+		var e = e || window.event;
+		var target = e.target || e.srcElement;
+		if (target.nodeName.toLowerCase() == 'li') {
+			alert(target.innerHTML);
+		}
+	})
+	document.querySelector('button').addEventListener('click', function (e) {
+		test.innerHTML += '<li><span>123</span></li><li><span>123</span></li>'
+	})
+
+</script>
+</body>
+</html>

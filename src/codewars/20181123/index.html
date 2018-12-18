@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+	var lastDigit = function(str1, str2){
+		let arr =[];
+		let num  = str1.charAt(str1.length-1);
+		num  = parseInt(num);
+		let n = num;
+		if(str2 ==0){
+			return 1;
+		}
+		while(arr.length==0 ||n !== arr[0]){
+			arr.push(n);
+			n = (num *n)%10;
+		}
+		var a =0;
+		for(var i=0;i<str2.length;i++){
+			a =a*10+parseInt(str2.charAt(i));
+			a%=arr.length;
+		}
+		return arr[(a*arr.length-1)%arr.length];
+	}
+	console.log(lastDigit("4", "2"))
+</script>
+</body>
+</html>

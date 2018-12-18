@@ -11,8 +11,8 @@ class InterfaceFactory{
 		}
 		this.name = name;
 		this.methods = [];
-		methods.forEach( item=> {
-			if(typeof item !== 'string'){
+		methods.forEach(item=> {
+			if(typeof item !== 'object'){
 				return;
 			}
 			this.methods.push(item);
@@ -24,9 +24,10 @@ class InterfaceFactory{
 			return;
 		}
 		this.methods.forEach(item=> {
-			var method =item;
-			if(!obj[method] || typeof obj[method] !== 'function'){
-				throw new Error('implements interface '+this.name+',obj.method '+method+' was not found');
+			var methodName =item.name;
+			console.log(obj[methodName].length)
+			if(!obj[methodName] || typeof obj[methodName] !== 'function'){
+				throw new Error('implements interface '+this.name+',obj.method '+methodName+' was not found');
 				return
 			}
 		})
@@ -62,3 +63,6 @@ const mixin = (base, ...mixins) => {
 	return aggregate
 }
 
+function except() {
+	
+}

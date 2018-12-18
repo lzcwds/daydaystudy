@@ -7,7 +7,6 @@ class View {
 	initializer(option) {
 
 		console.log('initializer view')
-		viewInterface.ensureImplements(this);
 	}
 
 	getView() {

@@ -6,12 +6,13 @@
 class Layer {
 	initializer(option) {
 		console.log('initializer Layer')
-		//判断layer是否实现方法
-		layerInterface.ensureImplements(this);
 		this.name = option.name+' layer';
 	}
 
-	getLayers() {
+	getLayers(id) {
+		let data = {
+			id:12
+		}
 		console.log(this.name)
 	}
 

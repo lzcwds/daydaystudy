@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑块</title>
+    <style>
+        .len{
+            width: 300px;
+            height: 6px;
+            background: #6c6;
+            border-radius: 3px;
+            margin-top:15px;
+            position: relative;
+        }
+        .len b{
+            display: inline-block;
+            height: 6px;
+            border-radius: 3px;
+            background: #900;
+            position: absolute;
+        }
+        .len span{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background: #090;
+            z-index: 1;
+            top: -2px;
+            left: 0;
+        }
+        .len input[type=range]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<input type="range" min="0" max="500" value="0">
+<input type="range" min="0" value="0">
+<script>
+	var ranges=document.querySelectorAll("input[type=range]");
+	ranges.forEach(function(range){
+		var Div=document.createElement("div");
+		Div.className="len";
+		range.parentNode.insertBefore(Div,range);
+		var span=document.createElement("span");
+		var b=document.createElement("b");
+		Div.appendChild(span);
+		Div.appendChild(b);
+		Div.appendChild(range);
+		span.onmousedown=function(e){
+			var x=e.clientX-this.offsetLeft;
+			var maxL=Div.offsetWidth-span.offsetWidth;
+			var maxV=range.max || 100;
+			document.onmousemove=function(e){
+				var les=e.clientX-x;
+				if(les < 0)les=0;
+				if(les > maxL)les=maxL;
+				span.style.left=les+"px";
+				b.style.width=les+span.offsetWidth/2+"px";
+				range.value=les/maxL*maxV;      //同步
+				e.preventDefault();             //阻止默认事件
+				console.log(range.value)
+			}
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+		}
+	})
+</script>
+</body>
+</html>
