@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//	var countChange = function(money, coins) {
+//		console.log(money)
+//		for(let i=0;i<money/coins[0];i++){
+//			let item = coins.shift();
+//			countChange(money-i*item,coins);
+//		}
+//	}
+//	countChange(4, [1,2]) //3
+//	countChange(10, [5,2,3]) //4
+    let str = '31000000001320000020';
+    let a = str.substr(0,2)+(str.length-4)+str.substr(str.length-2,2);
+    document.write(str.substr(2,str.length-4))
+</script>
+</body>
+</html>

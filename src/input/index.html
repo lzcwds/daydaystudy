@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html encoding="utf-8">
+<head>
+    <style>
+    </style>
+</head>
+<body>
+<form>
+    <label>Password:</label>
+    <input type="text" id="hint_pass" disabled/><!--这里为了展示，真实场景此input隐藏-->
+
+    <input type="text" id="pass" name="pass"/>
+</form>
+<script>
+    /*
+        获取真实值可以通过    hint_pass.value
+     */
+	var pass=document.getElementById('pass');
+	var hint_pass=document.getElementById('hint_pass');
+	pass.onkeyup=pass.onchange=function(){
+		if(pass.value.length>2&&pass.value.length<=10){
+			if(hint_pass.value.length<pass.value.length){
+				let addstr = pass.value.substr(hint_pass.value.length);
+				hint_pass.value +=addstr;
+				pass.value = pass.value.substr(0,2);
+				for(let i=2;i<hint_pass.value.length;i++){
+					pass.value+="*"
+                }
+			}else if(hint_pass.value.length>pass.value.length){
+				hint_pass.value = hint_pass.value.substr(0,pass.value.length)
+            }
+        }else if(pass.value.length>10){
+			if(hint_pass.value.length<pass.value.length){
+				let addstr = pass.value.substr(hint_pass.value.length);
+				hint_pass.value +=addstr;
+				pass.value = pass.value.substr(0,2);
+				for(let i=2;i<hint_pass.value.length;i++){
+					if(i<10){
+						pass.value+="*"
+                    }else{
+						pass.value+=hint_pass.value.charAt(i);
+					}
+
+				}
+			}else if(hint_pass.value.length>pass.value.length){
+				hint_pass.value = hint_pass.value.substr(0,pass.value.length)
+			}
+        }else{
+			hint_pass.value = pass.value
+        }
+	};
+</script>
+</body>
+</html>

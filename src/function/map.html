@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+	/*
+    输入m,n两个数,输出一个长度为m,内容都是n的数组
+*/
+    let fun = (m,n)=> new Array(m).fill(n);
+
+    let fun2 = (m,n)=> Array.apply(null,new Array(m)).map(()=>n)
+
+//	let fun3 = (m,n)=> new Array(m).map((item)=>{
+//    	console.log(item)
+//    	return n
+//	})
+    let fun4 =(m,n)=>Array.from(new Array(m),item=>'n')
+	console.log(fun4(6,'n'))
+</script>
+</body>
+</html>

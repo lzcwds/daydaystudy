@@ -5,15 +5,8 @@
 
 //图层接口
 const layerInterface = new InterfaceFactory('layerInterface',[
-	{
-		name:'getLayers',
-		params:['id'],
-	},
-	{
-		name:'addLayer',
-		params:['params'],
-	},
-	// 'deleteLayer'
+	'getLayers',
+	'addLayer'
 ]);
 //场景接口
 const viewInterface = new InterfaceFactory('viewInterface',[

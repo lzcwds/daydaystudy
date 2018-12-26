@@ -63,6 +63,3 @@ const mixin = (base, ...mixins) => {
 	return aggregate
 }
 
-function except() {
-	
-}

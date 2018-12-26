@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text">
+<button>click</button>
+<div id="msg"></div>
+</body>
+<script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+<script>
+    $('button').click(function () {
+    	console.log('click')
+	    $.ajax({
+		    async : true,
+            url:"http://w.58leke.cn/index.php?s=/Wapajax/taskset.html",
+		    type:'POST',
+		    data:{
+			    task_type:1,
+			    maxmoney:1000
+            },
+		    success: function(response, status, xhr){
+			    console.log('状态为：' + status + ',状态是：' + xhr.statusText);
+			    console.log(response);
+			    $('#msg').text(res);
+		    }
+	    })
+    })
+</script>
+</html>

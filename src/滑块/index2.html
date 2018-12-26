@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="view_search_range">
+    <div class="range_title">
+        <span>区域范围</span>
+        <span class="range_reset">重置</span>
+    </div>
+    <div class="range_content">
+        <div class="progress_remark">
+            <span>0km</span>
+            <span>3km</span>
+            <span>6km</span>
+            <span>9km</span>
+            <span>12km</span>
+            <span>15km</span>
+        </div>
+        <div class="progress_dot">
+
+        </div>
+        <div class="progress_bar">
+            <div class="progress_bar_item"></div>
+        </div>
+        <div class="progress_slider">
+            <i class="slider_start font_family icon-icon-distancechoose">
+                <span>0</span>
+            </i>
+
+            <i class="slider_end font_family icon-icon-distancechoose">
+                <span>12</span>
+            </i>
+        </div>
+    </div>
+</div>
+<script>
+	//区域范围重置按钮
+	$(searchId+'.view_search_range .range_reset').click((e)=>{
+		console.log('reset')
+	})
+	let range = {
+		max:239,
+		min:-11
+	}
+	$(searchId+'.progress_remark span').each(function (index, item) {
+		$(this).css('left',index*50+'px');
+	})
+	let i = 0;
+	while(i<=250){
+		$(searchId+'.progress_dot').append(`<span class="big_dot" style="left: ${i}px;"></span>`);
+		i+=50/3
+	}
+	//左滑块
+	$(searchId+'.slider_start').on('mousedown',function(e){
+		let parentDiv = $(searchId+'.progress_slider')[0];
+		let sliderBar = $(searchId+'.progress_bar_item');
+		let sliderStart = $(searchId+'.slider_start');
+		var x = e.clientX - sliderStart[0].offsetLeft;
+		var minL=0-sliderStart[0].offsetWidth/2;
+		$(document).on('mousemove',function (e) {
+			var les=e.clientX-x;
+			if(les < minL)les=minL;
+			if(les > range.max)les=range.max;
+			sliderStart.css('left',les+'px');
+			sliderBar.css('left',les+sliderStart[0].offsetWidth/2+"px");
+			range.min =les;
+			e.preventDefault();
+			console.log(range.min)
+		})
+		$(document).on('mouseup', function() {
+			$(this).unbind('mousemove');
+			$(this).unbind('mouseup');
+		});
+	})
+	//右滑块
+	$(searchId+'.slider_end').on('mousedown',function(e){
+		let parentDiv = $(searchId+'.progress_slider')[0];
+		let sliderBar = $(searchId+'.progress_bar_item');
+		let sliderEnd = $(searchId+'.slider_end');
+		var x = e.clientX - sliderEnd[0].offsetLeft;
+		var maxL=parentDiv.offsetWidth-sliderEnd[0].offsetWidth/2;
+		$(document).on('mousemove',function (e) {
+			var les=e.clientX-x;
+			if(les <range.min)les=range.min;
+			if(les > maxL)les=maxL;
+			sliderEnd.css('left',les+'px');
+			sliderBar.css('right',parentDiv.offsetWidth-les-sliderEnd[0].offsetWidth/2+"px");
+			range.max =les
+			e.preventDefault();
+			console.log(range.max)
+		})
+		$(document).on('mouseup', function() {
+			$(this).unbind('mousemove');
+			$(this).unbind('mouseup');
+		});
+	})
+</script>
+</body>
+</html>
