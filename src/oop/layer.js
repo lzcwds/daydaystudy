@@ -9,10 +9,7 @@ class Layer {
 		this.name = option.name+' layer';
 	}
 
-	getLayers(id) {
-		let data = {
-			id:12
-		}
+	getLayers() {
 		console.log(this.name)
 	}
 
