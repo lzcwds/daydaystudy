@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.js"></script>
+		<div class="input-wrapper">some text1</div>
+		<div class="input-wrapper">some text2</div>
+		<div class="input-wrapper">some text3</div>
+		<div class="input-wrapper">some text4</div>
+
+		<script>
+			function create_structure() {
+				let child = $(".input-wrapper");
+				$.each(child, function (index, val) {
+					var parent = $("<div class='form-group'></div>");
+					parent.replaceAll(val);
+					parent.append(val);
+				});
+			}
+			$(function () {
+				// create_structure();
+
+        // best   use warp
+				for (let i = 0; i < $(".input-wrapper").length; i++) {
+					$($(".input-wrapper")[i]).wrap("<div class='form-group'></div>");
+				}
+			});
+		</script>
+	</body>
+</html>
