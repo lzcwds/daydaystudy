@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Image Mapping</h1>
+  <img name="parkMap" src="https://i.ibb.co/cbmgggd/AGRIECOMAP.gif" id="image" usemap="#image-map" border="0" width="100%">
+
+  <map name="image-map">
+    <area target="" shape="rect" coords="345, 204, 435, 283" href="kubo" alt="Kubo">
+    <area target="" shape="rect" coords="439, 325, 500, 369" href="" alt="Bee">
+    <area target="" shape="rect" coords="314, 356, 356, 384" href="" alt="Bridge">
+  </map>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://davidjbradshaw.com/imagemap-resizer/js/imageMapResizer.min.js"></script>
+
+    <script type="text/javascript">
+        $('map').imageMapResize();
+
+    </script>
+</body>
+</html>
