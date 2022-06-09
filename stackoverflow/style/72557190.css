@@ -1,0 +1,51 @@
+.profile-page {
+  width: 50%;
+  margin: auto;
+  background-color: #f4f5fa;
+  box-shadow: 2px 2px 5px 2px gray;
+  }
+  
+  .profile-heading {
+      width: 100%;
+      background-color: #0b2b88;
+      color: white;
+      padding: 10px;
+  }
+  
+  .profile-details {
+      width: 100%;
+      padding: 10px;
+  }
+  
+  .input-field {
+      display: flex;
+      width: 100%;
+      margin: auto;
+  }
+  
+  .form-heading {
+      width: 30%;
+  }
+  
+  .form-input {
+      width: 30%;
+  }
+  
+  .form-input input {
+      border: none;
+  }
+  
+  .form-button {
+      width: 50%;
+      text-align: center;
+  }
+  
+  .form-button button {
+      background-color: #0b2b88;
+      color: white;
+      padding: 20px;
+  }
+  
+  .edit-button {
+      width: 30%;
+  }
